@@ -4,10 +4,12 @@ php:
   - 5.5
 env:
   - MAGENTO_BRANCH="magento-1.9"
+  - PAGARME_BRANCH="travis-ci"
 
 before_script:
-  - git clone -b $MAGENTO_BRANCH https://github.com/OpenMage/magento-mirror.git magento
-  - cd magento
+  #- git clone -b $MAGENTO_BRANCH https://github.com/OpenMage/magento-mirror.git magento
+  #- cd magento
+  - git clone -b  git@github.com:SocialGroups/pagarme-magento.git
   - ls
 #  - git clone git://github.com/EcomDev/EcomDev_PHPUnit.git -b dev ./phpunit/
 #  - CURR_DIR=$(pwd)
