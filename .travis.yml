@@ -3,9 +3,6 @@ language: php node_js
 php:
   - 5.5
 
-node_js:
-  - "5"
-
 env:
  # - MAGENTO_BRANCH="magento-1.9"
   - PAGARME_BRANCH="travis-ci"
@@ -13,6 +10,8 @@ env:
 before_script:
   - git clone -b $PAGARME_BRANCH https://github.com/SocialGroups/pagarme-magento.git
   - ls
+  - php --version
+  - node --version
 #  - git clone git://github.com/EcomDev/EcomDev_PHPUnit.git -b dev ./phpunit/
 #  - CURR_DIR=$(pwd)
 #  - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman -O ./mageci/bin/modman
