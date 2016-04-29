@@ -3,7 +3,7 @@ language: php
 php:
   - 5.5
 env:
-  - MAGENTO_BRANCH="magento-1.9"
+ # - MAGENTO_BRANCH="magento-1.9"
   - PAGARME_BRANCH="travis-ci"
 
 before_script:
