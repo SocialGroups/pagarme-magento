@@ -18,6 +18,10 @@ before_install:
 before_script:
   - phantomjs --version
   - casperjs --version
+  - git clone https://github.com/tburry/travis-nginx-test.git travis
+
+install:
+  - travis/install-nginx.sh
 #  - git clone -b $PAGARME_BRANCH https://github.com/SocialGroups/pagarme-magento.git
 #  - ls
 #  - git clone git://github.com/EcomDev/EcomDev_PHPUnit.git -b dev ./phpunit/
@@ -29,6 +33,11 @@ before_script:
 #  - composer install --dev
 #  - cd magento
 
-script: phantomjs testrunner.js
 #script:
 #  - ../vendor/bin/phpunit --group Sitewards_B2BProfessional
+
+script:
+  - phantomjs testrunner.js
+  - curl -vsf 'http://localhost:8080/hello.php' &> /dev/stdout
+  - cat /tmp/error.log
+
