@@ -1,4 +1,4 @@
-language: php node_js
+language: php
 
 php:
   - 5.5
@@ -7,11 +7,19 @@ env:
  # - MAGENTO_BRANCH="magento-1.9"
   - PAGARME_BRANCH="travis-ci"
 
+before_install:
+  - npm install -g grunt-cli
+  - git clone git://github.com/n1k0/casperjs.git ~/casperjs
+  - cd ~/casperjs
+  - git checkout tags/1.0.2
+  - export PATH=$PATH:`pwd`/bin
+  - cd -
+
 before_script:
-  - git clone -b $PAGARME_BRANCH https://github.com/SocialGroups/pagarme-magento.git
-  - ls
-  - php --version
-  - node --version
+  - phantomjs --version
+  - casperjs --version
+#  - git clone -b $PAGARME_BRANCH https://github.com/SocialGroups/pagarme-magento.git
+#  - ls
 #  - git clone git://github.com/EcomDev/EcomDev_PHPUnit.git -b dev ./phpunit/
 #  - CURR_DIR=$(pwd)
 #  - wget https://raw.githubusercontent.com/colinmollenhour/modman/master/modman -O ./mageci/bin/modman
