@@ -1,7 +1,11 @@
-language: php
+language: php node_js
 
 php:
   - 5.5
+
+node_js:
+  - "5"
+
 env:
  # - MAGENTO_BRANCH="magento-1.9"
   - PAGARME_BRANCH="travis-ci"
